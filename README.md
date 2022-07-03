@@ -32,12 +32,14 @@ used WebDriverManager to work independently anywhere
 -To have a FE validation on making the email as a mandatory field
 -To block sending to the BE as long as not matching the FE validations (to disable the sign up button)
 
+## Challenges
+**Capcha** will never be automated!, as long as it is a production env. so it's acceptable but is should get disabled on other testing/staging enviroment in order to run our autmated test efficiently.
 
 
+#Happy Scenario Video
 https://user-images.githubusercontent.com/47253204/177022639-5c5fc702-99ed-47e9-8c47-aa557200c888.mp4
 
 
-## Challenges
-**Capcha** will never be automated!, as long as it is a production env. so it's acceptable but is should get disabled on other testing/staging enviroment in order to run our autmated test efficiently.
+
 
 
