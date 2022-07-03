@@ -14,6 +14,8 @@ POC of Adapting agile methodolgies like BDD & TDD, using **Cucumber** & **Jerkin
 
 Mainly used javafaker to save the time of creating the test data manually and automated it based on the needed criteria.
 
+used WebDriverManager to work independently anywhere
+
 ## Covered Scenarios 
 
 1-Only Happy scenario of register using valid data for all field, to validate sign up successfully.
