@@ -19,7 +19,7 @@ used WebDriverManager to work independently anywhere
 ## Covered Scenarios 
 
 1-Only Happy scenario of register using valid data for all field, to validate sign up successfully.
-2-Entering invalid white space on all fields to validate that they are all mandatory by FE validation
+2-Entering invalid white space on all fields to validate that they are all mandatory by FE validation.
 3-Register with valid data execpt for empty **fullName**, and relying on the BE response validation to get shown by the FE to validate the field mandatory’s. 
 4-Register with valid data execpt for empty store **name**, and relying on the BE response validation to get shown by the FEf to validate ield mandatory’s.
 5-Validate that phone number can't be less that 11 using FE validation alerts 
@@ -33,7 +33,7 @@ used WebDriverManager to work independently anywhere
 -To block sending to the BE as long as not matching the FE validations (to disable the sign up button)
 
 ## Challenges
-**Capcha** will never be automated!, as long as it is a production env. so it's acceptable but is should get disabled on other testing/staging enviroment in order to run our autmated test efficiently.
+**Capcha** will never be automated!, as long as it is a production env. so it's acceptable but is should get disabled on other testing/staging enviroment in order to run our autmated test efficiently; this could be manipulated through API signup request
 
 
 ## Happy Scenario Video
