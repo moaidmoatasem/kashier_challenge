@@ -13,11 +13,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 //import cucumber.api.testng.AbstractTestNGCucumberTests;
 import utilities.Helper;
@@ -48,7 +44,7 @@ public class TestBase
 		return options;
 	}
 
-	@BeforeSuite
+	@BeforeMethod
 	@Parameters({"browser"})
 	public void startDriver(@Optional("chrome") String browserName) 
 	{
@@ -82,14 +78,15 @@ public class TestBase
 		driver.navigate().to("https://merchant.kashier.io/signup");
 	} 
 
-//	@AfterSuite
-//	public void stopDriver()
-//	{
-//		driver.quit();
-//	}
+//	@AfterTest
+
 
 	// take screenshot when test case fail and add it in the Screenshot folder
 	@AfterMethod
+	public void stopDriver()
+	{
+		driver.quit();
+	}
 	public void screenshotOnFailure(ITestResult result)
 	{
 		if (result.getStatus() == ITestResult.FAILURE)

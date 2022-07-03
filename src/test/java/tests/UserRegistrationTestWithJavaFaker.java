@@ -72,21 +72,25 @@ public class UserRegistrationTestWithJavaFaker extends TestBase
 //		boolean isCaptchaDisplayed = ;
 
 //		if (!registerObject.captcha.isSelected()){
-			WebElement userNameDashboard = driver.findElement(By.className("m-topbar__username"));
-//			wait.until(ExpectedConditions.visibilityOf(userNameDashboard));
-			//Assert.assertEquals(userNameDashboard.getText(),full_name);
-			boolean checkFullName = userNameDashboard.getText().contains(full_name);
-			Assert.assertTrue(checkFullName);
-			String pageTitle = driver.getTitle();
-			Assert.assertEquals(pageTitle,"Kashier | Dashboard");
+		WebElement userNameDashboard = driver.findElement(By.className("m-topbar__username"));
+		if(driver.getCurrentUrl()!="https://merchant.kashier.io/en/dashboard") {
+				WebDriverWait wait = new WebDriverWait(driver, 30);
+				wait.until(ExpectedConditions.visibilityOf(userNameDashboard));}
+		else {
+				Assert.assertEquals(userNameDashboard.getText(), full_name);
+				boolean checkFullName = userNameDashboard.getText().contains(full_name);
+				Assert.assertTrue(checkFullName);
+				String pageTitle = driver.getTitle();
+				Assert.assertEquals(pageTitle, "Kashier | Dashboard");
 
-			System.out.println(checkFullName+"\t"+pageTitle);
-//		}
+				System.out.println(checkFullName + "\t" + pageTitle);
+			}
+		}
 //		else
 //			 return;
 
 
-	}
+
 	@Test(priority=2,alwaysRun=true)
 	public void UserRegisterWithEmptyName_afterBE_Response() {
 		UserRegistrationPage registerObject = new UserRegistrationPage(driver);
