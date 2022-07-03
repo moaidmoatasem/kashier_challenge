@@ -114,15 +114,16 @@ public class UserRegistrationTestWithJavaFaker extends TestBase
 		UserRegistrationPage registerObject = new UserRegistrationPage(driver);
 		registerObject.userRegistration(full_name, "", validPhone, email, password, password);
 		registerObject.clickSignUp();
-		if (registerObject.captcha.isDisplayed()) {System.out.println("Captcha is shown up");return;}
-		else {
-			WebElement errorMsg = driver.findElement(By.xpath("//*[@id=\"m_login\"]/div/div/div[2]/div[1]/h6"));
-			String actualText = errorMsg.getText();
+
+		if (!registerObject.captcha.isDisplayed()) {
 			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.visibilityOf(errorMsg));
+			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//h6"))));
+			WebElement errorMsg = driver.findElement(By.cssSelector(".alert"));
+			String actualText = errorMsg.getText();
 			assertTrue(actualText.contains("Oops! There were some missing data!"));
 		}
-		return;
+		else
+			System.out.println("Captcha Shows up");;
 	}
 
 	@Test (priority=4,alwaysRun=true)
